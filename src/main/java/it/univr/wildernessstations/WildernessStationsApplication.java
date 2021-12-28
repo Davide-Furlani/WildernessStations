@@ -9,5 +9,4 @@ public class WildernessStationsApplication {
     public static void main(String[] args) {
         SpringApplication.run(WildernessStationsApplication.class, args);
     }
-
 }
