@@ -10,27 +10,27 @@ public class Station {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private long id;
     private String name;
-    private Double longitude;
-    private Double latitude;
-    private Boolean state;
+    private double longitude;
+    private double latitude;
+    private boolean state;
 
     public Station() {
     }
 
-    public Station(String name, Double longitude, Double latitude, Boolean state) {
+    public Station(String name, double longitude, double latitude, boolean state) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
         this.state = state;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -42,27 +42,27 @@ public class Station {
         this.name = name;
     }
 
-    public Double getLongitude() {
+    public double getlongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setlongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public Double getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public Boolean getState() {
+    public boolean getState() {
         return state;
     }
 
-    public void setState(Boolean state) {
+    public void setState(boolean state) {
         this.state = state;
     }
 }

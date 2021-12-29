@@ -8,18 +8,18 @@ public class Measurements {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     @ManyToOne
     private Station station;
-    private Double temperature;
-    private Double atmPressure;
-    private Double windSpeed;
+    private double temperature;
+    private double atmPressure;
+    private double windSpeed;
     private Timestamp timeStamp;
 
     public Measurements(){
     }
 
-    public Measurements(Station station, Double temperature, Double atmPressure, Double windSpeed, Timestamp timeStamp) {
+    public Measurements(Station station, double temperature, double atmPressure, double windSpeed, Timestamp timeStamp) {
         this.station = station;
         this.temperature = temperature;
         this.atmPressure = atmPressure;
@@ -43,27 +43,27 @@ public class Measurements {
         this.station = station;
     }
 
-    public Double getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(Double temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    public Double getAtmPressure() {
+    public double getAtmPressure() {
         return atmPressure;
     }
 
-    public void setAtmPressure(Double atmPressure) {
+    public void setAtmPressure(double atmPressure) {
         this.atmPressure = atmPressure;
     }
 
-    public Double getWindSpeed() {
+    public double getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(Double windSpeed) {
+    public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
     }
 
