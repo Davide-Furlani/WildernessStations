@@ -42,11 +42,11 @@ public class Station {
         this.name = name;
     }
 
-    public double getlongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setlongitude(double longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
