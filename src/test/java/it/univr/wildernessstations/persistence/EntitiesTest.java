@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @Transactional
 @RunWith(SpringRunner.class)
@@ -28,9 +29,15 @@ public class EntitiesTest {
         s = stationRepository.save(s);
         Station res = stationRepository.findById(s.getId());
         assertEquals(res.getName(), s.getName());
-        List<Station> allStations = stationRepository.findAll();
-        assertEquals(allStations.size(), 1);
-        assertEquals(allStations.get(0).getLatitude(), 10.0, 0.001);
+    }
+
+    @Test
+    public void allStations() {
+        Station s = new Station("station_1", 10.0, 10.0, true);
+        stationRepository.save(s);
+        List<Station> stations = stationRepository.findAll();
+        assertTrue(stations.size() >= 1);
+        assertEquals(stations.get(stations.size()-1).getLatitude(), 10.0, 0.001);
     }
 
     @Test
