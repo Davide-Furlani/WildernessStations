@@ -5,7 +5,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!--if no stations, display error-->
+        <p class="text-center" th:if="${stations.empty}">There are no stations in the database.</p>
+        <!--stations grid-->
+        <div class="row row-cols-1 row-cols-md-3 g-4" th:unless="${stations.empty}">
             <div class="col" th:each="station : ${stations}">
                 <div class="card h-100">
                     <div class="card-body">
