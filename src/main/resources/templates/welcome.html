@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head">
+    <title>Replace me</title>
 </head>
 <body>
-    <h1>Welcome to Wilderness Stations web app</h1>
-    <a href="homepage">Go to the homepage</a>
+    <div class="container">
+        <h1 class="text-center">Welcome to Wilderness Stations web app</h1>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <a href="homepage.html" th:href="@{homepage}" class="btn btn-outline-primary">Go to the homepage</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

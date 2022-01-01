@@ -1,10 +1,16 @@
 package it.univr.wildernessstations;
 
+import it.univr.wildernessstations.persistence.StationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AppController {
+
+    @Autowired
+    private StationRepository stationRepository;
 
     @RequestMapping("/")
     public String welcome() {
@@ -12,8 +18,9 @@ public class AppController {
     }
 
     @RequestMapping("/homepage")
-    public String homepage() {
-        return "homepage";
+    public String homepage(Model model) {
+        HomepageService homepageService= new HomepageService(stationRepository, model);
+        return homepageService.serve();
     }
 
 }
