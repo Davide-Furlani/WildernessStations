@@ -4,7 +4,8 @@
   <title>Replace me</title>
 </head>
 <body>
-  <div class="container">
+  <header th:replace="navbar">Replace me</header>
+  <div class="container" style="margin-top: 70px;">
     <div class="card w-25">
       <div class="card-body">
 
@@ -36,7 +37,7 @@
 
       </div>
     </div>
-    <div>
+    <div style="margin-top: 10px;">
       <a href="homepage.html" th:href="@{homepage}" class="btn btn-outline-primary">Go to the homepage</a>
     </div>
   </div>
