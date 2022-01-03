@@ -4,7 +4,8 @@
     <title>Replace me</title>
 </head>
 <body>
-    <div class="container">
+    <header th:replace="navbar">Replace me</header>
+    <div class="container" style="margin-top: 70px;">
         <!--if no stations, display error-->
         <p class="text-center" th:if="${stations.empty}">There are no stations in the database.</p>
         <!--stations grid-->
