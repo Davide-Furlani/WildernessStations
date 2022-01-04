@@ -30,4 +30,9 @@ public class AppController {
         return stationService.serve();
     }
 
+    @RequestMapping("/addstationform")
+    public String addStation() {
+        return "addStationForm";
+    }
+
 }

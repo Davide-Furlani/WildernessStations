@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head th:replace="head">
-  <title>Replace me</title>
+    <title>Replace me</title>
 </head>
 <body>
-  <header th:replace="navbar">Replace me</header>
-  <div class="container" style="margin-top: 70px;">
+<header th:replace="navbar">Replace me</header>
+<div class="container" style="margin-top: 70px;">
     <div class="card w-25">
-      <div class="card-body">
+        <div class="card-body">
 
-        <h4 class="card-title" th:text="${station.getName()}">Station</h4>
+            <h4 class="card-title" th:text="${station.getName()}">Station</h4>
 
-        <p class="card-text">
-          ID: <td th:text="${station.getId()}">id</td>
-        </p>
+            <p class="card-text">
+                ID: <span th:text="${station.getId()}">id</span>
+            </p>
 
-        <p class="card-text">
-          Longitude: <td th:text="${station.getLongitude()}">longitude</td>
-        </p>
+            <p class="card-text">
+                Longitude: <span th:text="${station.getLongitude()}">longitude</span>
+            </p>
 
-        <p class="card-text">
-          Latitude: <td th:text="${station.getLatitude()}">latitude</td>
-        </p>
+            <p class="card-text">
+                Latitude: <span th:text="${station.getLatitude()}">latitude</span>
+            </p>
 
-        <p class="card-text" th:if="${station.getState()}">
-          Station state: <span class="text-success">active</span>
-        </p>
+            <p class="card-text" th:if="${station.getState()}">
+                Station state: <span class="text-success">active</span>
+            </p>
 
-        <p class="card-text" th:unless="${station.getState()}">
-          Station state: <span class="text-danger">inactive</span>
-        </p>
+            <p class="card-text" th:unless="${station.getState()}">
+                Station state: <span class="text-danger">inactive</span>
+            </p>
 
-        <div style="text-align: center">
-          <a href="editStation.html" th:href="@{station(id=${station.getId()})}">Edit</a>
+            <div style="text-align: center">
+                <a href="editStation.html" th:href="@{station(id=${station.getId()})}">Edit</a>
+            </div>
+
         </div>
-
-      </div>
     </div>
     <div style="margin-top: 10px;">
-      <a href="homepage.html" th:href="@{homepage}" class="btn btn-outline-primary">Go to the homepage</a>
+        <a href="homepage.html" th:href="@{homepage}" class="btn btn-outline-primary">Go to the homepage</a>
     </div>
-  </div>
+</div>
 </body>
 </html>
