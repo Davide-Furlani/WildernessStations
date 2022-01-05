@@ -7,10 +7,10 @@
 <header th:replace="navbar">Replace me</header>
 <div class="container" style="margin-top: 70px;">
     <h3>Add a new station</h3>
-    <form action="addstation" th:action="@{addstation}" class="needs-validation" novalidate>
+    <form th:action="@{addStation}" class="needs-validation" novalidate>
         <div class="mb-3">
-            <label for="stationName">Station's name</label>
-            <input type="text" class="form-control" id="stationName" name="stationName" required/>
+            <label for="name">Station's name</label>
+            <input type="text" class="form-control" id="name" name="name" required/>
             <div class="invalid-feedback">
                 A valid station name is required.
             </div>

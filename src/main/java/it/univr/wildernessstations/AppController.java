@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class AppController {
 
@@ -20,19 +22,29 @@ public class AppController {
 
     @RequestMapping("/homepage")
     public String homepage(Model model) {
-        HomepageService homepageService= new HomepageService(stationRepository, model);
+        HomepageService homepageService = new HomepageService(stationRepository, model);
         return homepageService.serve();
     }
 
     @RequestMapping("/station")
     public String station(@RequestParam(name = "id", required = true) Long id, Model model) {
-        StationService stationService= new StationService(stationRepository, id, model);
+        StationService stationService = new StationService(stationRepository, id, model);
         return stationService.serve();
     }
 
-    @RequestMapping("/addstationform")
-    public String addStation() {
-        return "addStationForm";
+    @RequestMapping("/addStation")
+    public String addStation(
+            @RequestParam(name = "name") Optional<String> name,
+            @RequestParam(name = "latitude") Optional<Double> latitude,
+            @RequestParam(name = "longitude") Optional<Double> longitude
+    ) {
+        if (name.isEmpty()) {
+            return "addStationForm";
+        } else {
+            AddStationService addStationService = new AddStationService(
+                    stationRepository, name.get(), latitude.get(), longitude.get());
+            return addStationService.serve();
+        }
     }
 
 }
