@@ -27,7 +27,7 @@ public class AppController {
     }
 
     @RequestMapping("/station")
-    public String station(@RequestParam(name = "id", required = true) Long id, Model model) {
+    public String station(@RequestParam(name = "id") Long id, Model model) {
         StationService stationService = new StationService(stationRepository, id, model);
         return stationService.serve();
     }
@@ -38,7 +38,7 @@ public class AppController {
             @RequestParam(name = "latitude") Optional<Double> latitude,
             @RequestParam(name = "longitude") Optional<Double> longitude
     ) {
-        if (name.isEmpty()) {
+        if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty()) {
             return "addStationForm";
         } else {
             AddStationService addStationService = new AddStationService(
