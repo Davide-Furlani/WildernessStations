@@ -36,15 +36,40 @@ public class AppController {
     public String addStation(
             @RequestParam(name = "name") Optional<String> name,
             @RequestParam(name = "latitude") Optional<Double> latitude,
-            @RequestParam(name = "longitude") Optional<Double> longitude
+            @RequestParam(name = "longitude") Optional<Double> longitude,
+            Model model
     ) {
         if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty()) {
             return "addStationForm";
         } else {
-            AddStationService addStationService = new AddStationService(
-                    stationRepository, name.get(), latitude.get(), longitude.get());
+            AddStationService addStationService = new AddStationService(stationRepository, name.get(), latitude.get(), longitude.get(), model);
             return addStationService.serve();
         }
+    }
+
+    @RequestMapping("/editStation")
+    public String editStation(@RequestParam(name = "id") Long id,
+                              @RequestParam(name = "name") Optional<String> name,
+                              @RequestParam(name = "latitude") Optional<Double> latitude,
+                              @RequestParam(name = "longitude") Optional<Double> longitude,
+                              @RequestParam(name = "state") Optional<Boolean> state,
+                              Model model
+    ){
+
+
+        if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty() || state.isEmpty()) {
+            EditStationService editStationService = new EditStationService(stationRepository, id, model);
+            return editStationService.serve();
+        } else {
+            EditStationService editStationService = new EditStationService(stationRepository, id, name.get(), latitude.get(), longitude.get(), state.get(), model);
+            return editStationService.serveInsert();
+        }
+    }
+
+    @RequestMapping("/deleteStation")
+    public String deleteStation(@RequestParam(name = "id") Long id, Model model) {
+        DeleteStationService deleteStationService = new DeleteStationService(stationRepository, id, model);
+        return deleteStationService.serve();
     }
 
 }

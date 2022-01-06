@@ -32,7 +32,11 @@
             </p>
 
             <div style="text-align: center">
-                <a href="editStation.html" th:href="@{station(id=${station.getId()})}">Edit</a>
+                <a href="editStation.html" th:href="@{editStation(id=${station.getId()})}">Edit</a>
+            </div>
+
+            <div style="text-align: center">
+                <a style="color:#FF0000;" th:href="@{deleteStation(id=${station.getId()})}">delete</a>
             </div>
 
         </div>
