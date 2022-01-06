@@ -31,9 +31,9 @@
                 Station state: <span class="text-danger">inactive</span>
             </p>
 
-            <div style="text-align: center">
-                <a href="editStation.html" th:href="@{station(id=${station.getId()})}">Edit</a>
-            </div>
+            <a href="editStation.html" th:href="@{station(id=${station.getId()})}" class="btn btn-outline-primary">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
 
         </div>
     </div>
