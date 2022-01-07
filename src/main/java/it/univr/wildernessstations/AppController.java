@@ -48,8 +48,8 @@ public class AppController {
     }
 
     @RequestMapping("/searchStation")
-    public String searchStation(@RequestParam(name = "id") long id){
-        SearchStationService searchStationService = new SearchStationService(stationRepository, id);
+    public String searchStation(@RequestParam(name = "id") long id, Model model){
+        SearchStationService searchStationService = new SearchStationService(stationRepository, id, model);
         return searchStationService.serve();
     }
 

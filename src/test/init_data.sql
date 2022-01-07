@@ -1,3 +1,6 @@
+DELETE FROM MEASUREMENTS;
+DELETE FROM STATION;
+
 insert into STATION (ID, LATITUDE, LONGITUDE, NAME, STATE)
 values (0, 45.376799, 10.792839, 'Sommacampagna', true),
        (1, 45.480101, 10.881819, 'Pescantina', true),
