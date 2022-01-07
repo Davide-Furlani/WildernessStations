@@ -72,4 +72,10 @@ public class AppController {
         return deleteStationService.serve();
     }
 
+    @RequestMapping("/searchStation")
+    public String searchStation(@RequestParam(name = "id") long id, Model model){
+        SearchStationService searchStationService = new SearchStationService(stationRepository, id, model);
+        return searchStationService.serve();
+    }
+
 }

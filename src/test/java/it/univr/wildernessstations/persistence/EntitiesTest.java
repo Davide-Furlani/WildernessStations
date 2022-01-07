@@ -49,7 +49,7 @@ public class EntitiesTest {
         assertEquals(m.getTemperature(), mm.getTemperature(), 0.001);
         assertEquals(m.getAtmPressure(), mm.getAtmPressure(), 0.001);
         assertEquals(m.getWindSpeed(), mm.getWindSpeed(), 0.001);
-        assertEquals(m.getTimeStamp(), mm.getTimeStamp());
+        assertEquals(m.getTimestamp(), mm.getTimestamp());
         assertEquals(m.getStation(), mm.getStation());
     }
 

@@ -31,9 +31,9 @@
                 Station state: <span class="text-danger">inactive</span>
             </p>
 
-            <div style="text-align: center">
-                <a href="editStation.html" th:href="@{editStation(id=${station.getId()})}">Edit</a>
-            </div>
+            <a href="editStation.html" th:href="@{station(id=${station.getId()})}" class="btn btn-outline-primary">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
 
             <div style="text-align: center">
                 <a style="color:#FF0000;" th:href="@{deleteStation(id=${station.getId()})}">delete</a>
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div style="margin-top: 10px;">
-        <a href="homepage.html" th:href="@{homepage}" class="btn btn-outline-primary">Go to the homepage</a>
+        <a href="homepage.html" th:href="@{homepage}" class="btn btn-primary">Go to the homepage</a>
     </div>
 </div>
 </body>

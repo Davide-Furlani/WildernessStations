@@ -14,17 +14,17 @@ public class Measurements {
     private double temperature;
     private double atmPressure;
     private double windSpeed;
-    private Timestamp timeStamp;
+    private Timestamp timestamp;
 
     public Measurements(){
     }
 
-    public Measurements(Station station, double temperature, double atmPressure, double windSpeed, Timestamp timeStamp) {
+    public Measurements(Station station, double temperature, double atmPressure, double windSpeed, Timestamp timestamp) {
         this.station = station;
         this.temperature = temperature;
         this.atmPressure = atmPressure;
         this.windSpeed = windSpeed;
-        this.timeStamp = timeStamp;
+        this.timestamp = timestamp;
     }
 
     public Long getId() {
@@ -67,11 +67,11 @@ public class Measurements {
         this.windSpeed = windSpeed;
     }
 
-    public Timestamp getTimeStamp() {
-        return timeStamp;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setTimeStamp(Timestamp timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTimestamp(Timestamp timeStamp) {
+        this.timestamp = timeStamp;
     }
 }
