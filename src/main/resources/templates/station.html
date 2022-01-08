@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col">
-            <table class="table">
+            <table class="table" id="mTable">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">Timestamp</th>
@@ -76,5 +76,12 @@
         <a href="homepage.html" th:href="@{homepage}" class="btn btn-primary">Go to the homepage</a>
     </div>
 </div>
+<script>
+    $(document).ready( function () {
+        $('#mTable').DataTable({
+            searching: false
+        });
+    } );
+</script>
 </body>
 </html>
