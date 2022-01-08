@@ -37,7 +37,14 @@ public class EntitiesTest {
         stationRepository.save(s);
         List<Station> stations = stationRepository.findAll();
         assertTrue(stations.size() >= 1);
-        assertEquals(stations.get(stations.size()-1).getLatitude(), 10.0, 0.001);
+        assertEquals(stations.get(stations.size() - 1).getLatitude(), 10.0, 0.001);
+    }
+
+    @Test
+    public void existsStation() {
+        Station s = new Station("station_1", 10.0, 10.0, true);
+        s = stationRepository.save(s);
+        assertTrue(stationRepository.existsById(s.getId()));
     }
 
     @Test
@@ -53,6 +60,16 @@ public class EntitiesTest {
         assertEquals(m.getStation(), mm.getStation());
     }
 
-
+    @Test
+    public void measurementsInfo() {
+        double minTemp = 10;
+        double maxTemp = 25;
+        double avgTemp = 17.26;
+        int distinctStations = 10;
+        assertEquals(minTemp, measurementsRepository.getMinTemperature(), 0.001);
+        assertEquals(maxTemp, measurementsRepository.getMaxTemperature(), 0.001);
+        assertEquals(avgTemp, measurementsRepository.getAvgTemperature(), 0.001);
+        assertEquals(distinctStations, measurementsRepository.countDistinctStation());
+    }
 
 }

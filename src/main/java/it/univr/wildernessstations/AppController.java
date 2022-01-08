@@ -1,5 +1,6 @@
 package it.univr.wildernessstations;
 
+import it.univr.wildernessstations.persistence.MeasurementsRepository;
 import it.univr.wildernessstations.persistence.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ public class AppController {
 
     @Autowired
     private StationRepository stationRepository;
+    @Autowired
+    private MeasurementsRepository measurementsRepository;
 
     @RequestMapping("/")
     public String welcome() {
@@ -28,21 +31,26 @@ public class AppController {
 
     @RequestMapping("/station")
     public String station(@RequestParam(name = "id") Long id, Model model) {
-        StationService stationService = new StationService(stationRepository, id, model);
+        StationService stationService = new StationService(stationRepository, measurementsRepository, id, model);
         return stationService.serve();
+    }
+
+    @RequestMapping("/infoData")
+    public String infoData(Model model){
+        InfoDataService infoDataService = new InfoDataService(measurementsRepository, model);
+        return infoDataService.serve();
     }
 
     @RequestMapping("/addStation")
     public String addStation(
             @RequestParam(name = "name") Optional<String> name,
             @RequestParam(name = "latitude") Optional<Double> latitude,
-            @RequestParam(name = "longitude") Optional<Double> longitude,
-            Model model
+            @RequestParam(name = "longitude") Optional<Double> longitude
     ) {
         if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty()) {
             return "addStationForm";
         } else {
-            AddStationService addStationService = new AddStationService(stationRepository, name.get(), latitude.get(), longitude.get(), model);
+            AddStationService addStationService = new AddStationService(stationRepository, name.get(), latitude.get(), longitude.get());
             return addStationService.serve();
         }
     }
@@ -57,11 +65,13 @@ public class AppController {
     ){
 
 
-        if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty() || state.isEmpty()) {
+        if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty()) {
             EditStationService editStationService = new EditStationService(stationRepository, id, model);
             return editStationService.serve();
         } else {
-            EditStationService editStationService = new EditStationService(stationRepository, id, name.get(), latitude.get(), longitude.get(), state.get(), model);
+            if(state.isEmpty())
+                state = Optional.of(false);
+            EditStationService editStationService = new EditStationService(stationRepository, measurementsRepository, id, name.get(), latitude.get(), longitude.get(), state.get(), model);
             return editStationService.serveInsert();
         }
     }
@@ -73,8 +83,8 @@ public class AppController {
     }
 
     @RequestMapping("/searchStation")
-    public String searchStation(@RequestParam(name = "id") long id, Model model){
-        SearchStationService searchStationService = new SearchStationService(stationRepository, id, model);
+    public String searchStation(@RequestParam(name = "id") long id){
+        SearchStationService searchStationService = new SearchStationService(stationRepository, id);
         return searchStationService.serve();
     }
 
