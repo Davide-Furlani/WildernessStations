@@ -1,4 +1,4 @@
-	package it.univr.wildernessstations.ui.utils;
+	package it.univr.wildernessstations.ui;
 
 	import java.util.concurrent.TimeUnit;
 

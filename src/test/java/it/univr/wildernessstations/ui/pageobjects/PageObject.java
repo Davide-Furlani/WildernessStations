@@ -1,9 +1,9 @@
-package it.univr.wildernessstations.ui.utils;
+package it.univr.wildernessstations.ui.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class PageObject {
+public abstract class PageObject {
 	
 	protected WebDriver driver;
 	

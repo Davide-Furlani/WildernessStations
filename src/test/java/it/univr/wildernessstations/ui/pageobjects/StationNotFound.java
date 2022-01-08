@@ -1,6 +1,5 @@
 package it.univr.wildernessstations.ui.pageobjects;
 
-import it.univr.wildernessstations.ui.utils.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

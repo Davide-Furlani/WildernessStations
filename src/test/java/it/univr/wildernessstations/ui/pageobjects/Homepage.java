@@ -1,6 +1,5 @@
 package it.univr.wildernessstations.ui.pageobjects;
 
-import it.univr.wildernessstations.ui.utils.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,23 +19,30 @@ public class Homepage extends PageObject {
         super(driver);
     }
 
-    public String getFirstStationName(){
+    public String getFirstStationName() {
         return firstStationName.getText();
     }
 
-    public int getNumberOfStations(){
+    public int getNumberOfStations() {
         return stationsList.size();
     }
 
     /**
      * use this method to search for a station that is NOT in the database
+     *
      * @param id the id of the station to search
      * @return a page object representing the not found page
      */
-    public StationNotFound searchStationNotPresent(long id){
+    public StationNotFound searchStationNotPresent(long id) {
         searchStationInput.sendKeys(String.valueOf(id));
         searchStationInput.submit();
         return new StationNotFound(driver);
+    }
+
+    public Station searchStation(long id) {
+        searchStationInput.sendKeys(String.valueOf(id));
+        searchStationInput.submit();
+        return new Station(driver);
     }
 
 }
