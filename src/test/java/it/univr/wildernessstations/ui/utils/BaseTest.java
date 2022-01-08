@@ -17,7 +17,7 @@
 
 	@RunWith(SpringRunner.class)
 	@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-	public class BaseTest {
+	public abstract class BaseTest {
 
 		protected static WebDriver driver;
 		// we skip the welcome page
