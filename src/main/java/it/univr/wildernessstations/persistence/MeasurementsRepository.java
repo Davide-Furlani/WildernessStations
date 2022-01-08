@@ -12,33 +12,33 @@ public interface MeasurementsRepository extends CrudRepository<Measurements, Lon
     List<Measurements> findAll();
 
     @Query("select min(temperature) from Measurements")
-    Double getMinTemperature();
+    double getMinTemperature();
 
     @Query("select max(temperature) from Measurements")
-    Double getMaxTemperature();
+    double getMaxTemperature();
 
     @Query("select avg(temperature) from Measurements")
-    Double getAvgTemperature();
+    double getAvgTemperature();
 
     @Query("select min(windSpeed) from Measurements")
-    Double getMinWindspeed();
+    double getMinWindspeed();
 
     @Query("select max(windSpeed) from Measurements")
-    Double getMaxWindspeed();
+    double getMaxWindspeed();
 
     @Query("select avg(windSpeed) from Measurements")
-    Double getAvgWindspeed();
+    double getAvgWindspeed();
 
     @Query("select min(atmPressure) from Measurements")
-    Double getMinAtmpressure();
+    double getMinAtmpressure();
 
     @Query("select max(atmPressure) from Measurements")
-    Double getMaxAtmpressure();
+    double getMaxAtmpressure();
 
     @Query("select avg(atmPressure) from Measurements")
-    Double getAvgAtmpressure();
+    double getAvgAtmpressure();
 
     @Query("select count(distinct station) from Measurements")
-    Double countDistictStation();
+    int countDistinctStation();
 
 }

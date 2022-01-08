@@ -25,7 +25,7 @@ public class InfoDataService implements BaseService{
         model.addAttribute("minWS", measurementsRepository.getMinWindspeed());
         model.addAttribute("maxWS", measurementsRepository.getMaxWindspeed());
         model.addAttribute("avgWS", measurementsRepository.getAvgWindspeed());
-        model.addAttribute("stCount", measurementsRepository.countDistictStation());
+        model.addAttribute("stCount", measurementsRepository.countDistinctStation());
 
         return "infoData";
     }
