@@ -1,6 +1,7 @@
 package it.univr.wildernessstations.persistence;
 
 import javax.persistence.*;
+
 import java.sql.Timestamp;
 
 @Entity

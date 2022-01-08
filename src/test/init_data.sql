@@ -14,7 +14,7 @@ values (0, 45.376799, 10.792839, 'Sommacampagna', true),
        (9, 45.514760, 10.911766, 'San Floriano', true);
 
 
-insert into MEASUREMENTS (ID, ATM_PRESSURE, TEMPERATURE, TIME_STAMP, WIND_SPEED, STATION_ID)
+insert into MEASUREMENTS (ID, ATM_PRESSURE, TEMPERATURE, TIMESTAMP, WIND_SPEED, STATION_ID)
 values (1, 993, 10, '2022-05-10 13:27:43', 0, 0),
        (2, 1035, 15, '2022-05-10 16:35:36', 5, 0),
        (3, 1033, 23, '2022-05-10 20:42:34', 1, 0),
@@ -116,3 +116,5 @@ values (1, 993, 10, '2022-05-10 13:27:43', 0, 0),
        (99, 1038, 19, '2022-05-10 23:42:56', 3, 9),
        (100, 1034, 18, '2022-05-10 23:29:47', 5, 9);
 
+--Drop table MEASUREMENTS;
+--drop table STATION;

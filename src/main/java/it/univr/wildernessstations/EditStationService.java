@@ -1,5 +1,6 @@
 package it.univr.wildernessstations;
 
+import it.univr.wildernessstations.persistence.MeasurementsRepository;
 import it.univr.wildernessstations.persistence.Station;
 import it.univr.wildernessstations.persistence.StationRepository;
 import org.springframework.ui.Model;
@@ -7,6 +8,7 @@ import org.springframework.ui.Model;
 public class EditStationService implements BaseService{
 
     private final StationRepository stationRepository;
+    private MeasurementsRepository measurementsRepository;
     private final Model model;
     private final long id;
     private String name;
@@ -19,8 +21,9 @@ public class EditStationService implements BaseService{
         this.model = model;
         this.id = id;
     }
-    public EditStationService(StationRepository stationRepository, long id, String name, double latitude, double longitude, boolean state, Model model) {
+    public EditStationService(StationRepository stationRepository, MeasurementsRepository measurementsRepository, long id, String name, double latitude, double longitude, boolean state, Model model) {
         this.stationRepository = stationRepository;
+        this.measurementsRepository = measurementsRepository;
         this.model = model;
         this.id = id;
         this.name = name;
@@ -44,6 +47,7 @@ public class EditStationService implements BaseService{
         stationRepository.save(s);
 
         model.addAttribute("station", s);
+        model.addAttribute("data", measurementsRepository.findMeasurementsByStation(stationRepository.findById(id)));
         return "station";
     }
 
