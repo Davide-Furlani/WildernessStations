@@ -35,6 +35,12 @@ public class AppController {
         return stationService.serve();
     }
 
+    @RequestMapping("/infoData")
+    public String infoData(Model model){
+        InfoDataService infoDataService = new InfoDataService(measurementsRepository, model);
+        return infoDataService.serve();
+    }
+
     @RequestMapping("/addStation")
     public String addStation(
             @RequestParam(name = "name") Optional<String> name,

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head">
+    <title>Replace me</title>
+</head>
+<body>
+<header th:replace="navbar">Replace me</header>
+<div class="container w-50" style="margin-top: 70px;">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total number of Measurements
+            <span class="badge bg-primary" th:text="${msCount}">numero</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Number of Stations that sent data
+            <span class="badge bg-primary" th:text="${stCount}">numero</span>
+        </li>
+    </ul>
+    <ul class="list-group mt-2">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Minimum Measured Temperature
+            <span class="badge bg-secondary" th:text="${minTemp}">minTemp</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Maximum Measured Temperature
+            <span class="badge bg-secondary" th:text="${maxTemp}">maxTemp</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Average Measured Temperature
+            <span class="badge bg-secondary" th:text="${avgTemp}">avgTemp</span>
+        </li>
+    </ul>
+    <ul class="list-group mt-2">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Minimum Measured Atmospheric Pressure
+            <span class="badge bg-secondary" th:text="${minAtmP}">minAtmP</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Maximum Measured Atmospheric Pressure
+            <span class="badge bg-secondary" th:text="${maxAtmP}">maxAtmP</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Average Measured Atmospheric Pressure
+            <span class="badge bg-secondary" th:text="${avgAtmP}">avgAtmP</span>
+        </li>
+    </ul>
+    <ul class="list-group mt-2">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Minimum Measured Wind Speed
+            <span class="badge bg-secondary" th:text="${minWS}">minWS</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Maximum Measured Wind Speed
+            <span class="badge bg-secondary" th:text="${maxWS}">maxWS</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Average Measured Wind Speed
+            <span class="badge bg-secondary" th:text="${avgWS}">avgWS</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
