@@ -1,10 +1,6 @@
 package it.univr.wildernessstations;
 
-import it.univr.wildernessstations.persistence.Station;
 import it.univr.wildernessstations.persistence.StationRepository;
-import org.springframework.ui.Model;
-
-import java.util.Optional;
 
 public class SearchStationService implements BaseService {
 

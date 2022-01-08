@@ -1,7 +1,6 @@
 package it.univr.wildernessstations;
 
 import it.univr.wildernessstations.persistence.MeasurementsRepository;
-import it.univr.wildernessstations.persistence.StationRepository;
 import org.springframework.ui.Model;
 
 public class InfoDataService implements BaseService{

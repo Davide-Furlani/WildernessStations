@@ -1,11 +1,8 @@
 package it.univr.wildernessstations;
 
-import it.univr.wildernessstations.persistence.Measurements;
 import it.univr.wildernessstations.persistence.MeasurementsRepository;
 import it.univr.wildernessstations.persistence.StationRepository;
 import org.springframework.ui.Model;
-
-import java.awt.*;
 
 public class StationService implements BaseService{
 
