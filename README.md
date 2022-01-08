@@ -42,21 +42,22 @@
 - Funzionamento:
   La pagina mostra una tabella contenente tutti i dati raccolti finora: una riga per ogni timestamp e una colonna per ogni tipologia di dato raccolto.
 - Cosa può andare storto:
-  se per la stazione non sono presenti dati, la tabella sarà vuota.
+  se per la stazione non sono presenti dati, la tabella sarà vuota e viene mostrato un avviso.
 - Altre attività:
-  E' possibile ordinare la tabella in ordine crescente o decrescente dei timestamp.
+  È possibile ordinare la tabella in ordine crescente o decrescente dei timestamp.
 - Stato del sistema al completamento:
   L'applicazione mostra la tabella dei dati richiesti.
 
-#### 5) Visualizzazione grafica dei dati raccolti
+#### 5) Visualizzazione riassuntiva dei dati raccolti
 - Assunzioni iniziali:
-  L'utente ha scelto di visualizzare i grafici tramite il menù di navigazione.
+  L'utente ha scelto di visualizzare la schermata riassuntiva dei dati tramite il menù di navigazione.
 - Funzionamento:
-  La pagina mostra un grafico per ogni tipo di dato che viene raccolto dalle stazioni. Ogni grafico mostra l'andamento nel tempo della media del dato su tutte le stazioni.
+  La pagina mostra una visualizzazione d'insieme dei dati raccolti: il numero di misurazioni ricevute, il numero di stazioni che hanno
+  inviato dati, e il minimo, massimo e media su ogni tipologia di dati che vengono ricevuti.
 - Altre attività:
   Nella stessa pagina sono presenti altri componenti che permettono di navigare tra le altre funzionalità.
 - Stato del sistema al completamento:
-  L'applicazione mostra i grafici.
+  L'applicazione mostra la pagina richiesta.
 
 #### 6) Aggiunta di una stazione al DB
 - Assunzioni iniziali:
