@@ -10,21 +10,18 @@ public class AddStationService implements BaseService{
     private final String name;
     private final Double latitude;
     private final Double longitude;
-    private final Model model;
 
-    public AddStationService(StationRepository stationRepository, String name, Double latitude, Double longitude, Model model) {
+    public AddStationService(StationRepository stationRepository, String name, Double latitude, Double longitude) {
         this.stationRepository = stationRepository;
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.model = model;
     }
 
     @Override
     public String serve() {
         Station s = new Station(name, longitude, latitude, false);
         s = stationRepository.save(s);
-        model.addAttribute("station", s);
-        return "station";
+        return String.format("redirect:/station?id=%d", s.getId());
     }
 }

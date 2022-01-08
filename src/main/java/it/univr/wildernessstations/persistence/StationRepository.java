@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface StationRepository extends CrudRepository<Station, Long> {
     Station findById(long id);
+    boolean existsById(long id);
     List<Station> findAll();
 }

@@ -45,13 +45,12 @@ public class AppController {
     public String addStation(
             @RequestParam(name = "name") Optional<String> name,
             @RequestParam(name = "latitude") Optional<Double> latitude,
-            @RequestParam(name = "longitude") Optional<Double> longitude,
-            Model model
+            @RequestParam(name = "longitude") Optional<Double> longitude
     ) {
         if (name.isEmpty() || latitude.isEmpty() || longitude.isEmpty()) {
             return "addStationForm";
         } else {
-            AddStationService addStationService = new AddStationService(stationRepository, name.get(), latitude.get(), longitude.get(), model);
+            AddStationService addStationService = new AddStationService(stationRepository, name.get(), latitude.get(), longitude.get());
             return addStationService.serve();
         }
     }
@@ -84,8 +83,8 @@ public class AppController {
     }
 
     @RequestMapping("/searchStation")
-    public String searchStation(@RequestParam(name = "id") long id, Model model){
-        SearchStationService searchStationService = new SearchStationService(stationRepository, id, model);
+    public String searchStation(@RequestParam(name = "id") long id){
+        SearchStationService searchStationService = new SearchStationService(stationRepository, id);
         return searchStationService.serve();
     }
 
