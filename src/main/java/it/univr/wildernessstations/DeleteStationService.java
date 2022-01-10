@@ -17,7 +17,6 @@ public class DeleteStationService implements BaseService{
 
     public String serve() {
         stationRepository.deleteById(id);
-
         model.addAttribute("stations", stationRepository.findAll());
         return "homepage";
     }

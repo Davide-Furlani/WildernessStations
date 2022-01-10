@@ -14,6 +14,8 @@ public class Homepage extends PageObject {
     private WebElement firstStationName;
     @FindBy(tagName = "input")
     private WebElement searchStationInput;
+    @FindBy(css = "a[href='addStation']")
+    private WebElement addStationLink;
 
     public Homepage(WebDriver driver) {
         super(driver);
@@ -43,6 +45,11 @@ public class Homepage extends PageObject {
         searchStationInput.sendKeys(String.valueOf(id));
         searchStationInput.submit();
         return new Station(driver);
+    }
+
+    public AddStation navigateToAddStation(){
+        addStationLink.click();
+        return new AddStation(driver);
     }
 
 }

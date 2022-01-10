@@ -8,6 +8,8 @@ public class Station extends PageObject {
 
     @FindBy(className = "card-title")
     private WebElement stationName;
+    @FindBy(className = "btn-outline-danger")
+    private WebElement deleteStationLink;
 
     public Station(WebDriver driver) {
         super(driver);
@@ -15,6 +17,11 @@ public class Station extends PageObject {
 
     public String getStationName() {
         return stationName.getText();
+    }
+
+    public Homepage deleteStation() {
+        deleteStationLink.click();
+        return new Homepage(driver);
     }
 
 }
