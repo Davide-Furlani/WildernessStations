@@ -48,7 +48,6 @@
 				driver = new FirefoxDriver(firefoxOptions);
 				driver.manage().window().maximize();
 				driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
-				driver.get(URL);
 			}
 			return driver;
 		}

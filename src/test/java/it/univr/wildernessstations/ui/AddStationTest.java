@@ -5,11 +5,8 @@ import it.univr.wildernessstations.ui.pageobjects.Homepage;
 import it.univr.wildernessstations.ui.pageobjects.Station;
 import org.junit.Test;
 
-import javax.transaction.Transactional;
-
 import static org.junit.Assert.*;
 
-@Transactional
 public class AddStationTest extends BaseTest{
 
     @Test

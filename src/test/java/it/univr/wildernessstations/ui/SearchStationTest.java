@@ -17,9 +17,18 @@ public class SearchStationTest extends BaseTest {
     }
 
     @Test
+    public void searchNegativeIdTest() {
+        Homepage homepage = new Homepage(driver);
+        StationNotFound notFoundPage = homepage.searchStationNotPresent(-1);
+        assertEquals("The required station wasn't found.", notFoundPage.getNotFoundText());
+    }
+
+    @Test
     public void searchStationTest() {
         Homepage homepage = new Homepage(driver);
-        Station stationPage = homepage.searchStation(0);
+        Station stationPage = homepage.searchStation(4);
+        assertEquals("Bovolone", stationPage.getStationName());
+        stationPage = stationPage.searchStation(0);
         assertEquals("Sommacampagna", stationPage.getStationName());
     }
 

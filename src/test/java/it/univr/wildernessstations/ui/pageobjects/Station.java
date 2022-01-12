@@ -10,6 +10,10 @@ public class Station extends PageObject {
     private WebElement stationName;
     @FindBy(className = "btn-outline-danger")
     private WebElement deleteStationLink;
+    @FindBy(tagName = "input")
+    private WebElement searchStationInput;
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement searchButton;
 
     public Station(WebDriver driver) {
         super(driver);
@@ -19,9 +23,14 @@ public class Station extends PageObject {
         return stationName.getText();
     }
 
-    public Homepage deleteStation() {
+    public Station searchStation(long id) {
+        searchStationInput.sendKeys(String.valueOf(id));
+        searchButton.click();
+        return new Station(driver);
+    }
+
+    public void deleteStation() {
         deleteStationLink.click();
-        return new Homepage(driver);
     }
 
 }

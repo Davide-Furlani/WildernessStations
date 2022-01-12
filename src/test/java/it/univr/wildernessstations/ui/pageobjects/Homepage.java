@@ -14,6 +14,8 @@ public class Homepage extends PageObject {
     private WebElement firstStationName;
     @FindBy(tagName = "input")
     private WebElement searchStationInput;
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement searchButton;
     @FindBy(css = "a[href='addStation']")
     private WebElement addStationLink;
 
@@ -43,7 +45,7 @@ public class Homepage extends PageObject {
 
     public Station searchStation(long id) {
         searchStationInput.sendKeys(String.valueOf(id));
-        searchStationInput.submit();
+        searchButton.click();
         return new Station(driver);
     }
 

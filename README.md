@@ -1,10 +1,21 @@
-# Weather station Web App
+# Wilderness Stations Web App
+
 #### Davide Furlani, Jacopo Zagoli
 
+## Descrizione dell'applicazione e assunzioni
+WildernessStations è una applicazione web che consente di controllare tutte le stazioni meteorologiche dispiegate sul territorio.  
+Tramite questa applicazione, è possibile visualizzare tutte le stazioni, avere una panoramica dei dati raccolti complessivamente e
+vedere nel dettaglio i dati raccolti da una singola stazione, cercare una stazione in particolare e aggiungere o modificare una stazione.  
+Trattandosi di un progetto didattico, abbiamo scelto di non implementare un sistema di autenticazione e di autorizzazione, comune a
+molte applicazioni, ma di focalizzarci su features specifiche riguardanti questo ambito particolare.  
+Inoltre, dal momento che le stazioni non sono state implementate a livello software, abbiamo assunto che i dati siano già stati raccolti, 
+elaborati ed inviati al centro di controllo, e che si trovino quindi all'interno del database.
+
 ## Scenari
+
 #### 1) Visualizzazione dell'elenco di tutte le stazioni dispiegate
 - Funzionamento:
-  La pagina mostra una griglia di tutte le stazioni (HomePage).
+  La pagina mostra una griglia di tutte le stazioni, con il nome e lo stato di ciascuna (HomePage).
 - Cosa può andare storto:
   Se nessuna stazione è presente nel DB allora la pagina mostra un avviso.
 - Altre attività:
@@ -63,9 +74,9 @@
 - Assunzioni iniziali:
   L'utente ha scelto di aggiungere una stazione tramite il menù di navigazione.
 - Funzionamento:
-  La pagina mostra tre campi: uno per il nome, uno per la latitudine e uno per la longitudine. Inseriti i tre dati l'unte deve confermare l'inserimento premendo il pulsante "Save". A questo punto verrà inserito nel DB una stazione con lo stato "spento".
+  La pagina mostra tre campi: uno per il nome, uno per la latitudine e uno per la longitudine. Inseriti i tre dati l'utente deve confermare l'inserimento premendo il pulsante "Save". A questo punto verrà inserito nel DB una stazione con lo stato "spento".
 - Cosa può andare storto:
-  se l'utente inserisce dei valori nel formato sbagliato viene mostrato un avviso e la stazione non viene inserita.
+  Se l'utente inserisce dei valori nel formato sbagliato viene mostrato un avviso e la stazione non viene inserita.
 - Altre attività:
   Nella stessa pagina sono presenti altri componenti che permettono di navigare tra le altre funzionalità.
 - Stato del sistema al completamento:
