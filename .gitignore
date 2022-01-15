@@ -2,6 +2,7 @@
 /.gradle/
 /build/
 /bin/
+/out/
 /build/classes/java/main/
 /.idea/
 /database/
