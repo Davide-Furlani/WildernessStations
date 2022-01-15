@@ -129,7 +129,8 @@ In questa classe sono presenti tre metodi:
 
 Tutti partono dalla homepage e navigano fino alla pagina d'inserimento della stazione.
 Il primo inserisce all'interno del form il nome, la latitudine e la longitudine della stazione e invia il form.
-Trovandosi nella pagina della stazione appena inserita, controlla se il nome della stazione corrisponde a quello previsto.  
+Trovandosi nella pagina della stazione appena inserita, controlla se il nome della stazione corrisponde a quello previsto,
+poi elimina la stazione inserita con l'apposito pulsante.  
 Il secondo e il terzo test invece, inseriscono rispettivamente dati errati e nessun dato nel form e cercano d'inviarlo.
 Poi verificano che nessuna stazione venga inserita e che i campi di input mostrino un avviso.
 
@@ -159,7 +160,7 @@ Tutti partono dalla homepage, tramite la barra di ricerca navigano fino alla pag
 Il primo inserisce all'interno del form un nuovo nome, latitudine, longitudine e stato della stazione e invia il form.
 Trovandosi nella pagina della stazione appena modificata, controlla se tutti i campi della stazione corrispondono a quelli previsti.  
 Il secondo test lascia i campi del form vuoti e cerca di completare la richiesta.
-Il terzo test invece cerca di completare il form riempiendo i campi con valori non accettabili (campo del nome vuoto e valori non numerici per latituine e longitudine).
+Il terzo test invece cerca di completare il form riempiendo i campi con valori non accettabili (campo del nome vuoto e valori non numerici per latitudine e longitudine).
 Poi entrambi i test verificano che i campi di input mostrino un avviso sulla stessa pagina.
 
 #### SortDataTest
