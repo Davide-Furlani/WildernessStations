@@ -126,3 +126,24 @@ Il primo inserisce all'interno del form il nome, la latitudine e la longitudine 
 Trovandosi nella pagina della stazione appena inserita, controlla se il nome della stazione corrisponde a quello previsto.  
 Il secondo e il terzo test invece, inseriscono rispettivamente dati errati e nessun dato nel form e cercano d'inviarlo.
 Poi verificano che nessuna stazione venga inserita e che i campi di input mostrino un avviso.
+
+#### EditStation Test
+In questa classe sono presenti tre metodi:
+- editStationValidTest
+- editStationEmptyFieldTest
+- editStationInvalidFieldTest
+
+Tutti partono dalla homepage, tramite la barra di ricerca navigano fino alla pagina della stazione dalla quale cliccando sul tasto "edit" si spostano sulla pagina dedicata alla modifica della stazione.
+Il primo inserisce all'interno del form un nuovo nome, latitudine, longitudine e stato della stazione e invia il form.
+Trovandosi nella pagina della stazione appena modificata, controlla se tutti i campi della stazione corrispondono a quelli previsti.  
+Il secondo test lascia i campi del form vuoti e cerca di completare la richiesta.
+Il terzo test invece cerca di completare il form riempiendo i campi con valori non accettabili (campo del nome vuoto e valori non numerici per latituine e longitudine).
+Poi entrambi i test verificano che i campi di input mostrino un avviso sulla stessa pagina.
+
+#### SortData Test
+In questa classe è presente un solo test:
+- sortTest
+
+Questo test parte dalla homepage e tramite la barra di ricerca si sposta sulla pagina di una stazione.
+Il test, poi, clicca sui campi per odinare la tabella in ordine crescente o decrescente rispetto al campo selezionato.
+Ogni volta che la tabella viene ordinata il test richiede una lista dei campi e controlla che la lista sia nell'ordine richiesto.

@@ -48,7 +48,7 @@ public class EditStationTest extends BaseTest{
     }
 
     @Test
-    public void editStationInvalidFieldTest(){
+    public void editStationEmptyFieldTest(){
 
         Boolean newState = false;
 
@@ -57,6 +57,23 @@ public class EditStationTest extends BaseTest{
         Station stationPage = homepage.searchStation(4);
         EditStation editStation = stationPage.edit();
         editStation.sendToForm("", "", "", newState);
+        editStation.submit();
+
+        assertEquals("A valid station name is required.", editStation.invalidName.getText());
+        assertEquals("Please insert a valid latitude.", editStation.invalidLatitude.getText());
+        assertEquals("Please insert a valid longitude.", editStation.invalidLongitude.getText());
+    }
+
+    @Test
+    public void editStationInvalidFieldTest(){
+
+        Boolean newState = false;
+
+        Homepage homepage = new Homepage(driver);
+
+        Station stationPage = homepage.searchStation(4);
+        EditStation editStation = stationPage.edit();
+        editStation.sendToForm("", "string", "string", newState);
         editStation.submit();
 
         assertEquals("A valid station name is required.", editStation.invalidName.getText());
