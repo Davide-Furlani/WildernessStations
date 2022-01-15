@@ -55,10 +55,7 @@ public class EditStation extends PageObject{
             stationLongitudeInput.sendKeys(longitude);
         }
 
-        if(stationStateInput.isSelected())
-            currentState = true;
-        else
-            currentState = false;
+        currentState = stationStateInput.isSelected();
 
         if(state != currentState)
                 stationStateInput.click();

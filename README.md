@@ -1,6 +1,7 @@
 # Wilderness Stations Web App
-
-#### Davide Furlani, Jacopo Zagoli
+*Davide Furlani, Jacopo Zagoli\
+A.A. 2021/2022\
+Elaborato per l'esame di fondamenti di ingegneria del software*
 
 ## Descrizione dell'applicazione e assunzioni
 WildernessStations è una applicazione web che consente di controllare tutte le stazioni meteorologiche dispiegate sul territorio.  
@@ -42,16 +43,16 @@ elaborati e inviati al centro di controllo, e che si trovino quindi all'interno 
 - Funzionamento:
   La pagina mostra tutti i dati relativi alla stazione: id, nome, posizione, stato (acceso, spento).
 - Altre attività:
-  È presente un bottone per modificare i dati della stazione, uno per visualizzare una tabella con i dati raccolti finora e uno per visualizzare informazioni relative ai dati raccolti
+  È presente un bottone per modificare i dati della stazione, uno per eliminarla e una tabella con i dati raccolti finora dalla stazione.
   Nella stessa pagina sono presenti altri componenti che permettono di navigare tra le altre funzionalità.
 - Stato del sistema al completamento:
   L'applicazione mostra la pagina relativa alla stazione corrente.
 
 #### 4) Visualizzazione dei dati raccolti da una stazione
 - Assunzioni iniziali:
-  L'utente dalla pagina di una stazione ha cliccato sul pulsante per visualizzare tutti i dati raccolti da quella stazione.
+  L'utente ha navigato fino alla pagina della stazione desiderata.
 - Funzionamento:
-  La pagina mostra una tabella contenente tutti i dati raccolti finora: una riga per ogni timestamp e una colonna per ogni tipologia di dato raccolto.
+  La pagina mostra una tabella contenente tutti i dati raccolti finora, con una riga per ogni timestamp e una colonna per ogni tipologia di dato raccolto.
 - Cosa può andare storto:
   se per la stazione non sono presenti dati, la tabella sarà vuota e viene mostrato un avviso.
 - Altre attività:
@@ -81,13 +82,13 @@ elaborati e inviati al centro di controllo, e che si trovino quindi all'interno 
 - Altre attività:
   Nella stessa pagina sono presenti altri componenti che permettono di navigare tra le altre funzionalità.
 - Stato del sistema al completamento:
-  La stazione è stata inserita nel DB, l'applicazione mostra la pagina della stazione appena inserita
+  La stazione è stata inserita nel database, l'applicazione mostra la pagina della stazione appena inserita
 
 #### 7) Modifica dei dati di una stazione
 - Assunzioni iniziali:
   L'utente ha scelto di modificare una stazione tramite la pagina di visualizzazione della stazione.
 - Funzionamento:
-  La pagina mostra quattro campi: uno per il nome, uno per la latitudine, uno per la longitudine e l'ultimo per lo stato, contenenti i valori correnti. L'utente ha la possibilità di modificare i valori. Deve poi confermare la modifica premendo il pulsante "submit". A questo punto verrà modificata nel DB la stazione scelta.
+  La pagina mostra quattro campi: uno per il nome, uno per la latitudine, uno per la longitudine e l'ultimo per lo stato, contenenti i valori correnti. L'utente ha la possibilità di modificare i valori. Deve poi confermare la modifica premendo il pulsante "submit". A questo punto verrà modificata nel database la stazione scelta.
 - Cosa può andare storto:
   se l'utente inserisce dei valori nel formato sbagliato viene mostrato un avviso e la stazione non viene aggiornata.
 - Altre attività:
@@ -96,6 +97,10 @@ elaborati e inviati al centro di controllo, e che si trovino quindi all'interno 
   La stazione è stata modificata nel DB, l'applicazione mostra la pagina della stazione.
 
 ## Tests
+Per un corretto utilizzo dei test, è necessario caricare precedentemente i dati nel database eseguendo il file
+__init_data.sql__. Se l'esecuzione non dovesse andare a buon fine perché il database non esiste, far partire una volta
+l'applicazione in modo che venga automaticamente generato e riprovare.  
+Si consiglia, per una maggiore semplicità, di eseguire il file direttamente all'interno di IntelliJ.
 
 ### Test di unità
 Per ora, l'applicazione non ha una logica di business complessa: la maggior parte del codice si occupa di
@@ -113,7 +118,8 @@ nello scope e il 62% dei metodi nello scope. Questo perché i metodi che non son
 triviali.
 
 ### Acceptance tests
-Gli acceptance test sono stati implementati tramite selenium e page object. È presente almeno un test per ogni scenario.
+Gli acceptance test sono stati implementati tramite Selenium e Page Object. È presente almeno un test per ogni scenario,
+tranne che per il quinto scenario, dato che si tratta di una semplice visualizzazione di dati già verificati con unit test.
 
 #### AddStationTest
 In questa classe sono presenti tre metodi:
@@ -127,7 +133,23 @@ Trovandosi nella pagina della stazione appena inserita, controlla se il nome del
 Il secondo e il terzo test invece, inseriscono rispettivamente dati errati e nessun dato nel form e cercano d'inviarlo.
 Poi verificano che nessuna stazione venga inserita e che i campi di input mostrino un avviso.
 
-#### EditStation Test
+#### HomepageTest
+Questa classe contiene un unico test (homepageTest) molto semplice: controlla che ci siano dieci elementi
+della griglia corrispondenti alle dieci stazioni, poi controlla che il nome della prima stazione sia corretto.
+
+#### SearchStationTest
+Questa classe contiene tre metodi che verificano il corretto funzionamento della ricerca di una stazione tramite id:
+- searchStationTest
+- searchNegativeIdTest
+- searchStationNotPresentTest
+
+Il primo metodo parte dalla homepage, cerca tramite la barra di ricerca la stazione con id=4 e verifica di arrivare
+sulla pagina della stazione di Bovolone. Poi ripete la ricerca con id=0 e verifica di trovare Sommacampagna.
+Il secondo metodo tenta di cercare una stazione con un id negativo, e verifica di arrivare sulla pagina "stazione non
+trovata". Il terzo invece cerca una stazione non presente nel database (id=200) e verifica di trovarsi sulla pagina 
+"stazione non trovata".
+
+#### EditStationTest
 In questa classe sono presenti tre metodi:
 - editStationValidTest
 - editStationEmptyFieldTest
@@ -140,10 +162,10 @@ Il secondo test lascia i campi del form vuoti e cerca di completare la richiesta
 Il terzo test invece cerca di completare il form riempiendo i campi con valori non accettabili (campo del nome vuoto e valori non numerici per latituine e longitudine).
 Poi entrambi i test verificano che i campi di input mostrino un avviso sulla stessa pagina.
 
-#### SortData Test
+#### SortDataTest
 In questa classe è presente un solo test:
 - sortTest
 
 Questo test parte dalla homepage e tramite la barra di ricerca si sposta sulla pagina di una stazione.
-Il test, poi, clicca sui campi per odinare la tabella in ordine crescente o decrescente rispetto al campo selezionato.
+Il test, poi, clicca sui campi per ordinare la tabella in ordine crescente o decrescente rispetto al campo selezionato.
 Ogni volta che la tabella viene ordinata il test richiede una lista dei campi e controlla che la lista sia nell'ordine richiesto.

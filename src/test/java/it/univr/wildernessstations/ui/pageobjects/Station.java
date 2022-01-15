@@ -16,7 +16,7 @@ public class Station extends PageObject {
     @FindBy(xpath = "//span[@id='latitude']")
     private WebElement stationLatitude;
     @FindBy(xpath = "//span[@name='state']")
-    private WebElement stationSate;
+    private WebElement stationState;
     @FindBy(xpath = "//a[@id='deleteBtn']")
     private WebElement deleteStationLink;
     @FindBy(xpath = "//a[@id='editBtn']")
@@ -25,8 +25,6 @@ public class Station extends PageObject {
     private WebElement searchStationInput;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement searchButton;
-    @FindBy(xpath = "//a[@id='homeBtn']")
-    private WebElement goToHomeButton;
     @FindBy(xpath = "//th[@id='timestampBtn']")
     private WebElement timestampButton;
     @FindBy(xpath = "//th[@id='atmpressureBtn']")
@@ -55,10 +53,7 @@ public class Station extends PageObject {
     }
 
     public Boolean getStationState() {
-        if(stationSate.getText().equals("active"))
-            return true;
-        else
-            return false;
+        return stationState.getText().equals("active");
     }
 
     public EditStation edit(){
